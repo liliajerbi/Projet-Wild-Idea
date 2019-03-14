@@ -3,6 +3,8 @@ package com.example.wildeas;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.wildeas.adapter.AdaptersIdeasList;
@@ -17,9 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import java.util.ArrayList;
 
-import java.util.List;
 
 public class Home extends AppCompatActivity {
 
@@ -73,6 +73,7 @@ public class Home extends AppCompatActivity {
 
 
 
+
         Button buttonAdd = findViewById(R.id.buttonAdd);
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,39 +90,66 @@ public class Home extends AppCompatActivity {
 
 
 
-        //Liste
-        List<Adders> filmList = new ArrayList<>();
+        //Liste pour film
+        final List<Adders> filmList = new ArrayList<>();
 
         filmList.add(new Adders("Du Miel plein la tête","Nick et Sarah élèvent leur fille de 10 ans, Tilda, dans les environs de Londres. Malgré leurs problèmes de couple, Amadeus  père de Nick, s'installe chez eux à contrecœur. En effet, atteint de la maladie d'Alzheimer et veuf depuis peu de temps, il est désormais incapable de vivre seul. ", " 20-09-2019 "));
         filmList.add(new Adders("Harry Potter", "the best one", "20-1-2018"));
         filmList.add(new Adders("Harry Potter", "the best one", "20-1-2018"));
         filmList.add(new Adders(myTitle, myDescripiton, myDate));
 
-        /* List<Adders> serieList = new ArrayList<>();
+        //Liste pour serie
+        final List<Adders> serieList = new ArrayList<>();
 
-        filmList.add(new Adders("Harry Potter", "the best a"));
-        filmList.add(new Adders("Harry Potter", "the best one"));
-        filmList.add(new Adders("Harry Potter", "the best one"));
-        filmList.add(new Adders(myTitle, myDescripiton,myDate)); */
+        serieList.add(new Adders("Peaky Blinders", "En 1919, à Birmingham, soldats, révolutionnaires politiques et criminels combattent pour se faire une place dans le paysage industriel de l'après-Guerre. Le Parlement s'attend à une violente révolte, et Winston Churchill mobilise des forces spéciales pour contenir les menaces. La famille Shelby compte parmi les membres les plus redoutables. ", "Depuis 2013"));
+        serieList.add(new Adders("Harry Potter", "the best one","Depuis 2013"));
+        serieList.add(new Adders("Harry Potter", "the best one","Depuis 2013"));
+        serieList.add(new Adders(myTitle, myDescripiton,myDate));
 
-        /*List<Adders> animeList = new ArrayList<>();
+        //Liste pour animes
+        final List<Adders> animeList = new ArrayList<>();
 
-        filmList.add(new Adders("Harry Potter","the best", "20-1-2018"));
-        filmList.add(new Adders("Harry Potter", "the best one", "20-1-2018"));
-        filmList.add(new Adders("Harry Potter", "the best one", "20-1-2018"));
-        filmList.add(new Adders(myTitle,myDescripiton, myDate)); */
+        animeList.add(new Adders("Devils' Line","Tsukasa Taira est une jeune étudiante qui s'est fait secourir lors d'une attaque de vampires, ces démons qui se fondent dans la population humaine.\n" +
+                "\n" +
+                "Yûki Anzai, son sauveur, est un policier moitié humain, moitié vampire qui utilise ses pouvoirs surnaturels pour combattre les menaces liées aux vampires dans la ville de Tokyo. Ces menaces concernent principalement les vampires qui ont franchit l'interdit, celui de boire du sang humain.\n", "07/04/2018"));
+        animeList.add(new Adders("Harry Potter", "the best one", "20-1-2018"));
+        animeList.add(new Adders("Harry Potter", "the best one", "20-1-2018"));
+        animeList.add(new Adders(myTitle,myDescripiton, myDate));
 
 
         //ListView
-        ListView ideasListView = findViewById(R.id.idea_view_list);
-        ideasListView.setAdapter(new AdaptersIdeasList(this, filmList));
+       /* ListView ideasListView = findViewById(R.id.idea_view_list);
+        ideasListView.setAdapter(new AdaptersIdeasList(this, filmList)); */
 
        /* ListView ideasListView = findViewById(R.id.idea_view_list);
         ideasListView.setAdapter(new AdaptersIdeasList(this, serieList)); */
 
-       /* ListView ideasListView = findViewById(R.id.idea_view_list);
-        ideasListView.setAdapter(new AdaptersIdeasList(this, animeList)); */
 
+       spinnercategories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+           @Override
+           public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+               switch (position) {
+
+                   case 0 :
+                       ListView ideasListView = findViewById(R.id.idea_view_list);
+                       ideasListView.setAdapter(new AdaptersIdeasList(Home.this, filmList));
+                       break;
+                   case 1 :
+                        ideasListView = findViewById(R.id.idea_view_list);
+                       ideasListView.setAdapter(new AdaptersIdeasList(Home.this, serieList));
+                       break;
+                   case 2 :
+                       ideasListView = findViewById(R.id.idea_view_list);
+                       ideasListView.setAdapter(new AdaptersIdeasList(Home.this, animeList));
+                       break;
+               }
+           }
+
+           @Override
+           public void onNothingSelected(AdapterView<?> parent) {
+
+           }
+       });
 
     }
 }
