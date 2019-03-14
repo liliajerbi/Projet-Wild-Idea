@@ -24,22 +24,20 @@ public class add_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String st;
                 EditText title_text = findViewById(R.id.title_text);
-
-                EditText description_text = findViewById(R.id.descripiton_text);
-
-                st=title_text.getText().toString();
-                //("Value",st);
-
-
-
-                //passer à la page Home
-                Intent Home = new Intent(add_page.this, Home.class);
-                startActivity(Home);
-
+                String titleText = title_text.getText().toString();
+                EditText descripiton_text = findViewById(R.id.descripiton_text);
+                String descripitonText = descripiton_text.getText().toString();
+                EditText date_text = findViewById(R.id.date_text);
+                String dateText = date_text.getText().toString();
+                Intent homePage = new Intent(add_page.this, Home.class);
+                homePage.putExtra("titleText", titleText);
+                homePage.putExtra("dateText", dateText);
+                homePage.putExtra("descripitonText", descripitonText);
+                startActivity(homePage);
             }
         });
 
     }
+
 }

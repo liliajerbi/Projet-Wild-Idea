@@ -47,11 +47,17 @@ public class AdaptersIdeasList extends BaseAdapter {
         //recuperation elements
         Adders currentItem = getItem(position) ;
         String itemTitle= currentItem.getTitle();
+        String itemDate= currentItem.getDate();
         String itemDescription= currentItem.getDescription();
+
+
 
         //recuperer item
         TextView itemTitleView = convertView.findViewById(R.id.item_title);
         itemTitleView.setText(itemTitle);
+
+        TextView itemDateView = convertView.findViewById(R.id.item_date);
+        itemDateView.setText(itemDate);
 
         TextView itemDescriptionView = convertView.findViewById(R.id.item_description);
         itemDescriptionView.setText(itemDescription);
