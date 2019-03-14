@@ -15,7 +15,9 @@
         android:layout_marginTop="16dp"
         android:scrollbars="vertical"
         android:text="@string/titleSubject"
+        android:textAllCaps="false"
         android:textColor="@color/colorPrimary"
+        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
@@ -29,6 +31,7 @@
         android:scrollbars="vertical"
         android:text="@string/Content"
         android:textColor="@color/colorPrimary"
+        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_subject" />
 
@@ -69,7 +72,11 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:background="@color/colorAccent"
         android:text="@string/SEND"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_message" />
 
