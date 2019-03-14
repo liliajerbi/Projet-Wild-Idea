@@ -21,7 +21,7 @@ public class Home extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_aboutUs:
-                Intent gotoAboutUs = new Intent(Home.this, Todo.class);
+                Intent gotoAboutUs = new Intent(Home.this, AboutUs.class);
                 startActivity(gotoAboutUs);
                 return true;
             case R.id.action_deco:
