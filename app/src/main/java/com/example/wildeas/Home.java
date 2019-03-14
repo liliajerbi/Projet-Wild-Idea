@@ -6,8 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
+import java.util.ArrayList;
+
+import java.util.List;
 
 public class Home extends AppCompatActivity {
 
@@ -33,7 +38,6 @@ public class Home extends AppCompatActivity {
         }
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +46,25 @@ public class Home extends AppCompatActivity {
         TextView texthello = findViewById(R.id.textHello);
         Intent intent = getIntent();
         String hello = intent.getStringExtra("textName");
-        texthello.setText("Hello " + hello);
+        texthello.setText("Welcome " + hello + "!");
+
+        Spinner spinnercategories = findViewById(R.id.spinner);
+        List categories = new ArrayList();
+        categories.add("Films");
+        categories.add("Series");
+        categories.add("Anime");
+
+        ArrayAdapter adapter = new ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item,
+                categories
+        );
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnercategories.setAdapter(adapter);
+
+
+
 
         Button buttonAdd = findViewById(R.id.buttonAdd);
         buttonAdd.setOnClickListener(new View.OnClickListener() {

@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +16,23 @@ public class AboutUs extends AppCompatActivity {
     private EditText mEditTextMessage;
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menuaboutus, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_deco:
+                Intent gotoMain = new Intent(AboutUs.this, MainActivity.class);
+                startActivity(gotoMain);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
@@ -22,8 +41,6 @@ public class AboutUs extends AppCompatActivity {
         mEditTextMessage = findViewById(R.id.edit_text_message);
         TextView creatMessage1 = findViewById(R.id.editText8);
         creatMessage1.setMovementMethod(new ScrollingMovementMethod());
-        TextView creatMessage2 = findViewById(R.id.editText11);
-        creatMessage2.setMovementMethod(new ScrollingMovementMethod());
 
         Button buttonSend = findViewById(R.id.button_send);
         buttonSend.setOnClickListener(new View.OnClickListener() {
