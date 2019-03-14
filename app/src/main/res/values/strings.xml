@@ -4,4 +4,12 @@
     <string name="name">Name</string>
     <string name="password">Password</string>
     <string name="go">Go</string>
+    <string name="titlesubject">titlesubject</string>
+    <string name="titlemessage">titlemessage</string>
+    <string name="buttonsend">buttonsend</string>
+    <string name="SEND">SEND</string>
+    <string name="titleSubject">Subject :</string>
+    <string name="TitleContent">Content :</string>
+    <string name="Content">Content</string>
+
 </resources>
