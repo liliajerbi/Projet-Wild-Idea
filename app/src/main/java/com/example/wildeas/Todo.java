@@ -39,28 +39,9 @@ public class Todo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo);
 
-        Button butEdit = findViewById(R.id.buttonEdit);
-        Button butRemove = findViewById(R.id.buttonRemove);
-        TextView description = findViewById(R.id.grostexte);
-        description.setMovementMethod(new ScrollingMovementMethod());
         TextView titre = findViewById(R.id.titre);
-
-        butRemove.setOnClickListener(new View.OnClickListener() {
-// action du bouton remove à remplir
-            @Override
-            public void onClick(View v) {
+        TextView description = findViewById(R.id.grostexte);
 
 
-            }
-        });
-//action du bouton Edit à remplir
-        butEdit.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-
-            }
-        });
     }
 }

@@ -11,11 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AboutUs">
-
-        </activity>
+        <activity android:name=".add_page"
+        android:theme="@style/AppTheme"/>
+        <activity android:name=".AboutUs"
+            android:label="About us"/>
         <activity android:name=".Todo"
-            android:label="Todo"/>
+            android:label="Article"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
