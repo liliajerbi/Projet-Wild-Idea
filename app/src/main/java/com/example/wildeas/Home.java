@@ -84,52 +84,54 @@ public class Home extends AppCompatActivity {
         });
 
         Intent added = getIntent();
+        String myCategory = added.getStringExtra("categorieText");
         String myTitle = added.getStringExtra("titleText");
         String myDate = added.getStringExtra("dateText");
         String myDescripiton = added.getStringExtra("descripitonText");
 
 
-
         //Liste pour film
         final List<Adders> filmList = new ArrayList<>();
 
-        filmList.add(new Adders("Du Miel plein la tête","Nick et Sarah élèvent leur fille de 10 ans, Tilda, dans les environs de Londres. Malgré leurs problèmes de couple, Amadeus  père de Nick, s'installe chez eux à contrecœur. En effet, atteint de la maladie d'Alzheimer et veuf depuis peu de temps, il est désormais incapable de vivre seul. ", " 20-09-2019 "));
-        filmList.add(new Adders("Harry Potter", "the best one", "20-1-2018"));
-        filmList.add(new Adders("Harry Potter", "the best one", "20-1-2018"));
-        filmList.add(new Adders(myTitle, myDescripiton, myDate));
+        filmList.add(new Adders("\n" +
+                "Idiocracy\n","Joe Bowers, l'Américain moyen par excellence, est choisi par le Pentagone comme cobaye d'un programme d'hibernation, qui va mal tourner. Il se réveille 500 ans plus tard et découvre que le niveau intellectuel de l'espèce humaine a radicalement baissé et qu'il est l'homme le plus brillant sur la planète... ", "  25 avril 2007 "));
+        filmList.add(new Adders("\n" +
+                "L'Arnacoeur\n", "Votre fille sort avec un sale type ? Votre soeur s'est enlisée dans une relation passionnelle destructrice ? Aujourd'hui, il existe une solution radicale, elle s'appelle Alex. Son métier : briseur de couple professionnel.", " 17 mars 2010"));
+        filmList.add(new Adders("\n" +
+                "Inception\n", "Dom Cobb est un voleur expérimenté – le meilleur qui soit dans l’art périlleux de l’extraction : sa spécialité consiste à s’approprier les secrets les plus précieux d’un individu, enfouis au plus profond de son subconscient, pendant qu’il rêve et que son esprit est particulièrement vulnérable. ", " 21/07/2010"));
+
+        if (myCategory!=null && myCategory.equals("Film")) {
+            filmList.add(new Adders(myTitle, myDescripiton, myDate));}
+
 
         //Liste pour serie
         final List<Adders> serieList = new ArrayList<>();
 
         serieList.add(new Adders("Peaky Blinders", "En 1919, à Birmingham, soldats, révolutionnaires politiques et criminels combattent pour se faire une place dans le paysage industriel de l'après-Guerre. Le Parlement s'attend à une violente révolte, et Winston Churchill mobilise des forces spéciales pour contenir les menaces. La famille Shelby compte parmi les membres les plus redoutables. ", "Depuis 2013"));
-        serieList.add(new Adders("Harry Potter", "the best one","Depuis 2013"));
-        serieList.add(new Adders("Harry Potter", "the best one","Depuis 2013"));
-        serieList.add(new Adders(myTitle, myDescripiton,myDate));
+        serieList.add(new Adders("Game of thrones", "Il y a très longtemps, à une époque oubliée, une force a détruit l'équilibre des saisons. Dans un pays où l'été peut durer plusieurs années et l'hiver toute une vie, des forces sinistres et surnaturelles se pressent aux portes du Royaume des Sept Couronnes. ","Depuis 2011"));
+        serieList.add(new Adders("House of Cards", "Frank Underwood, homme politique rusé et vieux briscard de Washington, est prêt à tout pour conquérir le poste \"suprême\"...","2013 - 2018"));
+       if (myCategory!=null && myCategory.equals("Serie")){
+        serieList.add(new Adders(myTitle, myDescripiton,myDate));}
 
         //Liste pour animes
         final List<Adders> animeList = new ArrayList<>();
 
-        animeList.add(new Adders("Devils' Line","Tsukasa Taira est une jeune étudiante qui s'est fait secourir lors d'une attaque de vampires, ces démons qui se fondent dans la population humaine.\n" +
+        animeList.add(new Adders("Death Note"," Light Yagami, un jeune étudiant surdoué, ramasse un jour le \"Death Note\", un carnet tenu auparavant par un shinigami (Dieu de la mort), Ryuk, qui apparemment s'ennuyait dans son monde.\n" +
                 "\n" +
-                "Yûki Anzai, son sauveur, est un policier moitié humain, moitié vampire qui utilise ses pouvoirs surnaturels pour combattre les menaces liées aux vampires dans la ville de Tokyo. Ces menaces concernent principalement les vampires qui ont franchit l'interdit, celui de boire du sang humain.\n", "07/04/2018"));
-        animeList.add(new Adders("Harry Potter", "the best one", "20-1-2018"));
-        animeList.add(new Adders("Harry Potter", "the best one", "20-1-2018"));
-        animeList.add(new Adders(myTitle,myDescripiton, myDate));
+                "Il suffit d'écrire le nom d'une personne dans ce carnet, et celle-ci meurt (selon certaines conditions que le shinigami expliquera à Light lors de leur rencontre).", "04/10/2006"));
+        animeList.add(new Adders("\n" +
+                "Nana", "Nana Komatsu, une jeune étudiante, décide de quitter sa ville natale pour partir rejoindre son petit ami Shôji, qui étudie dans une école d'art à Tokyo. ", "05/04/2006 "));
+        animeList.add(new Adders("Yakusoku no Neverland", "Emma, Norman et Ray coulent des jours heureux à l'orphelinat Grace Field House. Entourés de leurs petits frères et sœurs, ils s'épanouissent sous l'attention pleine de tendresse de « Maman », qu'ils considèrent comme leur véritable mère. Mais tout bascule le soir où ils découvrent l'abominable réalité qui se cache derrière la façade de leur vie paisible ! Ils doivent s'échapper, c'est une question de vie ou de mort !", "09/01/2019"));
+        if (myCategory!=null && myCategory.equals("Anime")){
+        animeList.add(new Adders(myTitle,myDescripiton, myDate));}
 
 
-        //ListView
-       /* ListView ideasListView = findViewById(R.id.idea_view_list);
-        ideasListView.setAdapter(new AdaptersIdeasList(this, filmList)); */
-
-       /* ListView ideasListView = findViewById(R.id.idea_view_list);
-        ideasListView.setAdapter(new AdaptersIdeasList(this, serieList)); */
-
+        //Spinner
 
        spinnercategories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
            @Override
            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                switch (position) {
-
                    case 0 :
                        ListView ideasListView = findViewById(R.id.idea_view_list);
                        ideasListView.setAdapter(new AdaptersIdeasList(Home.this, filmList));
@@ -152,4 +154,5 @@ public class Home extends AppCompatActivity {
        });
 
     }
+
 }

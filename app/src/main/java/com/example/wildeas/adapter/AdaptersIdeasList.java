@@ -1,25 +1,26 @@
 package com.example.wildeas.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
-
 import com.example.wildeas.R;
+import com.example.wildeas.Todo;
 import com.example.wildeas.models.Adders;
 
 import java.util.List;
 
-public class AdaptersIdeasList extends BaseAdapter {
+public class AdaptersIdeasList extends ArrayAdapter<Adders> {
 
     private Context context;
     private List<Adders> addedList ;
     private LayoutInflater inflater;
 
     public AdaptersIdeasList(Context context, List<Adders> addedList ) {
+        super(context,0, addedList);
         this.context= context;
         this.addedList=addedList;
         this.inflater= LayoutInflater.from(context);
@@ -53,15 +54,23 @@ public class AdaptersIdeasList extends BaseAdapter {
 
 
         //recuperer item
-        TextView itemTitleView = convertView.findViewById(R.id.item_title);
+        final TextView itemTitleView = convertView.findViewById(R.id.item_title);
         itemTitleView.setText(itemTitle);
 
-        TextView itemDateView = convertView.findViewById(R.id.item_date);
+        final TextView itemDateView = convertView.findViewById(R.id.item_date);
         itemDateView.setText(itemDate);
 
-        TextView itemDescriptionView = convertView.findViewById(R.id.item_description);
+        final TextView itemDescriptionView = convertView.findViewById(R.id.item_description);
         itemDescriptionView.setText(itemDescription);
 
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToToDo;
+                goToToDo = new Intent(getContext(),Todo.class);
+                getContext().startActivity(goToToDo);
+            }
+        });
 
         return convertView;
     }

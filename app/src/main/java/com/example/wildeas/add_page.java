@@ -31,12 +31,12 @@ public class add_page extends AppCompatActivity {
                 EditText date_text = findViewById(R.id.date_text);
                 String dateText = date_text.getText().toString();
                 EditText typeText = findViewById(R.id.type_text);
-                String categorie = typeText.getText().toString();
+                String categorieChoix = typeText.getText().toString();
                 Intent homePage = new Intent(add_page.this, Home.class);
                 homePage.putExtra("titleText", titleText);
                 homePage.putExtra("dateText", dateText);
                 homePage.putExtra("descripitonText", descripitonText);
-                homePage.putExtra("categorieText" , categorie);
+                homePage.putExtra("categorieText" , categorieChoix);
                 startActivity(homePage);
             }
         });

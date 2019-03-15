@@ -78,12 +78,13 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:hint="@string/Type"
+        android:hint="@string/indiquez_film_serie_anime"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toTopOf="@+id/date_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_text"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:importantForAutofill="no" />
 
 </android.support.constraint.ConstraintLayout>
