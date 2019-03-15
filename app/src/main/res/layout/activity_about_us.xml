@@ -16,8 +16,8 @@
         android:scrollbars="vertical"
         android:text="@string/titleSubject"
         android:textAllCaps="false"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="italic"
+        android:textColor="@color/color1"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
@@ -30,8 +30,8 @@
         android:layout_marginTop="16dp"
         android:scrollbars="vertical"
         android:text="@string/Content"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="italic"
+        android:textColor="@color/color1"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_subject" />
 
@@ -75,8 +75,7 @@
         android:background="@color/colorAccent"
         android:text="@string/SEND"
         android:textAllCaps="false"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold"
+        android:textColor="@color/color2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_message" />
 
@@ -90,7 +89,7 @@
         android:ems="10"
         android:inputType="textMultiLine"
         android:text="@string/textaboutus"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/color1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
