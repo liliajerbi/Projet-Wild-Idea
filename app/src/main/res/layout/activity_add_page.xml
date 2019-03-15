@@ -29,11 +29,10 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:layout_marginBottom="32dp"
         android:background="@color/colorAccent"
         android:text="@string/add"
+        android:textColor="@color/color2"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descripiton_text" />
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,7 +41,7 @@
     <EditText
         android:id="@+id/descripiton_text"
         android:layout_width="0dp"
-        android:layout_height="322dp"
+        android:layout_height="150dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
