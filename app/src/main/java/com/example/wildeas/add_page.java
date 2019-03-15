@@ -54,10 +54,13 @@ public class add_page extends AppCompatActivity {
                 String descripitonText = descripiton_text.getText().toString();
                 EditText date_text = findViewById(R.id.date_text);
                 String dateText = date_text.getText().toString();
+                EditText typeText = findViewById(R.id.type_text);
+                String categorieChoix = typeText.getText().toString();
                 Intent homePage = new Intent(add_page.this, Home.class);
                 homePage.putExtra("titleText", titleText);
                 homePage.putExtra("dateText", dateText);
                 homePage.putExtra("descripitonText", descripitonText);
+                homePage.putExtra("categorieText" , categorieChoix);
                 startActivity(homePage);
             }
         });

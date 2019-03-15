@@ -42,6 +42,9 @@ public class Todo extends AppCompatActivity {
         TextView titre = findViewById(R.id.titre);
         TextView description = findViewById(R.id.grostexte);
 
+        Intent goToToDo = getIntent();
+
+
 
     }
 }
