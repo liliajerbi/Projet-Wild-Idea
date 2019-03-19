@@ -54,7 +54,7 @@ public class Home extends AppCompatActivity {
         TextView texthello = findViewById(R.id.textHello);
         Intent intent = getIntent();
         String hello = intent.getStringExtra("textName");
-        texthello.setText("Welcome " + hello + "!");
+        texthello.setText("Welcome " + hello + " !");
 
         Spinner spinnercategories = findViewById(R.id.spinner);
         List categories = new ArrayList();

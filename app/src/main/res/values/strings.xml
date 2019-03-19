@@ -29,5 +29,10 @@
     <string name="Title">Title</string>
     <string name="title">Title</string>
     <string name="indiquez_film_serie_anime">Indiquez : Film / Serie / Anime</string>
+    <string name="login">Login</string>
+    <string name="photolauncher">photolauncher</string>
+    <string name="portrait">portrait</string>
+    <string name="csa">CSA</string>
+    <string name="logo">logo</string>
     <string name="add_image">Add image</string>
 </resources>

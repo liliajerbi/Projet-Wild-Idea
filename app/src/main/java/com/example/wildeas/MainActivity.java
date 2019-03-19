@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_aboutUs:
-                Intent gotoAboutUs = new Intent(MainActivity.this, Todo.class);
+                Intent gotoAboutUs = new Intent(MainActivity.this, AboutUs.class);
                 startActivity(gotoAboutUs);
                 return true;
             default:

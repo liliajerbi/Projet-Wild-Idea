@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +17,29 @@ import android.widget.ImageView;
 
 
 public class add_page extends AppCompatActivity {
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_aboutUs:
+                Intent gotoAboutUs = new Intent(add_page.this, AboutUs.class);
+                startActivity(gotoAboutUs);
+                return true;
+            case R.id.action_deco:
+                Intent gotoMain = new Intent(add_page.this, MainActivity.class);
+                startActivity(gotoMain);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     final int RESULT_LOAD_IMAGE = 1;
 
     @Override
