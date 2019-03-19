@@ -2,10 +2,12 @@ package com.example.wildeas.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.wildeas.R;
 import com.example.wildeas.Todo;
@@ -50,6 +52,7 @@ public class AdaptersIdeasList extends ArrayAdapter<Adders> {
         String itemTitle= currentItem.getTitle();
         String itemDate= currentItem.getDate();
         String itemDescription= currentItem.getDescription();
+        String mnemonic = currentItem.getMnemonic();
 
 
 
@@ -62,6 +65,11 @@ public class AdaptersIdeasList extends ArrayAdapter<Adders> {
 
         final TextView itemDescriptionView = convertView.findViewById(R.id.item_description);
         itemDescriptionView.setText(itemDescription);
+
+        ImageView itemIconView = convertView.findViewById(R.id.item_image);
+        String resourceName =  mnemonic;
+        int resId = context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
+        itemIconView.setImageResource(resId);
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
