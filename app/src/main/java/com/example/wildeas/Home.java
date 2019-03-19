@@ -1,15 +1,14 @@
 package com.example.wildeas;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
 import com.example.wildeas.adapter.AdaptersIdeasList;
 import com.example.wildeas.models.Adders;
-
 import java.util.ArrayList;
 import java.util.List;
 import android.view.Menu;
@@ -51,28 +50,20 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         TextView texthello = findViewById(R.id.textHello);
-        Intent intent = getIntent();
-        String hello = intent.getStringExtra("textName");
-        texthello.setText("Welcome " + hello + " !");
+        SharedPreferences sharedpref = Home.this.getSharedPreferences("com.example.wildeas", Context.MODE_PRIVATE);
+        texthello.setText("Welcome " + sharedpref.getString("Login", "") + " !");
 
         Spinner spinnercategories = findViewById(R.id.spinner);
-        List categories = new ArrayList();
+        List<String> categories = new ArrayList<>();
         categories.add("Films");
         categories.add("Series");
         categories.add("Anime");
 
-        ArrayAdapter adapter = new ArrayAdapter(
-                this,
-                android.R.layout.simple_spinner_item,
-                categories
-        );
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_spinner_item, categories);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnercategories.setAdapter(adapter);
-
-
-
-
 
         Button buttonAdd = findViewById(R.id.buttonAdd);
         buttonAdd.setOnClickListener(new View.OnClickListener() {
@@ -93,12 +84,12 @@ public class Home extends AppCompatActivity {
         //Liste pour film
         final List<Adders> filmList = new ArrayList<>();
 
-        filmList.add(new Adders("\n" +
-                "Idiocracy\n","Joe Bowers, l'Américain moyen par excellence, est choisi par le Pentagone comme cobaye d'un programme d'hibernation, qui va mal tourner. Il se réveille 500 ans plus tard et découvre que le niveau intellectuel de l'espèce humaine a radicalement baissé et qu'il est l'homme le plus brillant sur la planète... ", "  25 avril 2007 "));
-        filmList.add(new Adders("\n" +
-                "L'Arnacoeur\n", "Votre fille sort avec un sale type ? Votre soeur s'est enlisée dans une relation passionnelle destructrice ? Aujourd'hui, il existe une solution radicale, elle s'appelle Alex. Son métier : briseur de couple professionnel.", " 17 mars 2010"));
-        filmList.add(new Adders("\n" +
-                "Inception\n", "Dom Cobb est un voleur expérimenté – le meilleur qui soit dans l’art périlleux de l’extraction : sa spécialité consiste à s’approprier les secrets les plus précieux d’un individu, enfouis au plus profond de son subconscient, pendant qu’il rêve et que son esprit est particulièrement vulnérable. ", " 21/07/2010"));
+        filmList.add(new Adders(
+                "Idiocracy","Joe Bowers, l'Américain moyen par excellence, est choisi par le Pentagone comme cobaye d'un programme d'hibernation, qui va mal tourner. Il se réveille 500 ans plus tard et découvre que le niveau intellectuel de l'espèce humaine a radicalement baissé et qu'il est l'homme le plus brillant sur la planète... ", "  25 avril 2007 "));
+        filmList.add(new Adders(
+                "L'Arnacoeur", "Votre fille sort avec un sale type ? Votre soeur s'est enlisée dans une relation passionnelle destructrice ? Aujourd'hui, il existe une solution radicale, elle s'appelle Alex. Son métier : briseur de couple professionnel.", " 17 mars 2010"));
+        filmList.add(new Adders(
+                "Inception", "Dom Cobb est un voleur expérimenté – le meilleur qui soit dans l’art périlleux de l’extraction : sa spécialité consiste à s’approprier les secrets les plus précieux d’un individu, enfouis au plus profond de son subconscient, pendant qu’il rêve et que son esprit est particulièrement vulnérable. ", " 21/07/2010"));
 
         if (myCategory!=null && myCategory.equals("Film")) {
             filmList.add(new Adders(myTitle, myDescripiton, myDate));}

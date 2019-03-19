@@ -3,12 +3,8 @@ package com.example.wildeas;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class Todo extends AppCompatActivity {
@@ -40,11 +36,17 @@ public class Todo extends AppCompatActivity {
         setContentView(R.layout.activity_todo);
 
         TextView titre = findViewById(R.id.titre);
-        TextView description = findViewById(R.id.grostexte);
+        TextView description = findViewById(R.id.description);
+        TextView date = findViewById(R.id.date);
 
         Intent goToToDo = getIntent();
+        String datevalue = goToToDo.getStringExtra("date");
+        String titrevalue = goToToDo.getStringExtra("title");
+        String descriptionvalue = goToToDo.getStringExtra("description");
 
-
+        date.setText(datevalue);
+        titre.setText(titrevalue);
+        description.setText(descriptionvalue);
 
     }
 }

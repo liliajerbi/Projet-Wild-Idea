@@ -1,6 +1,8 @@
 package com.example.wildeas;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -47,10 +49,13 @@ public class MainActivity extends AppCompatActivity {
                  String password = textPassword.getText().toString();
                     if (login.equals("wild") && password.equals("wild")) {
 
-
-                    Intent homePage = new Intent(MainActivity.this, Home.class);
-                    homePage.putExtra("textName", login);
-                    startActivity(homePage);
+                        SharedPreferences sharedpref = MainActivity.this.getSharedPreferences("com.example.wildeas", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedpref.edit();
+                        editor.putString("Login", login);
+                        editor.apply();
+                        Intent homePage = new Intent(MainActivity.this, Home.class);
+                        //homePage.putExtra("textName", login);
+                        startActivity(homePage);
                     }
                     else {
                         Toast.makeText(MainActivity.this, "Wrong login/password", Toast.LENGTH_LONG).show();

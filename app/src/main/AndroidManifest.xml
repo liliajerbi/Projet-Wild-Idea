@@ -27,7 +27,8 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".AboutUs"
-            android:label="About us" />
+            android:label="About us"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".Todo"
             android:label="Article" />

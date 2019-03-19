@@ -47,9 +47,9 @@ public class AdaptersIdeasList extends ArrayAdapter<Adders> {
 
         //recuperation elements
         Adders currentItem = getItem(position) ;
-        String itemTitle= currentItem.getTitle();
-        String itemDate= currentItem.getDate();
-        String itemDescription= currentItem.getDescription();
+        final String itemTitle= currentItem.getTitle();
+        final String itemDate= currentItem.getDate();
+        final String itemDescription= currentItem.getDescription();
 
 
 
@@ -66,8 +66,10 @@ public class AdaptersIdeasList extends ArrayAdapter<Adders> {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToToDo;
-                goToToDo = new Intent(getContext(),Todo.class);
+                Intent goToToDo = new Intent(getContext(),Todo.class);
+                goToToDo.putExtra("title", itemTitle);
+                goToToDo.putExtra("date", itemDate);
+                goToToDo.putExtra("description", itemDescription);
                 getContext().startActivity(goToToDo);
             }
         });
