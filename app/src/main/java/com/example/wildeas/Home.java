@@ -3,9 +3,7 @@ package com.example.wildeas;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.wildeas.adapter.AdaptersIdeasList;
@@ -20,7 +18,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 
 public class Home extends AppCompatActivity {
 
@@ -90,6 +87,8 @@ public class Home extends AppCompatActivity {
         String myDate = added.getStringExtra("dateText");
         String myDescripiton = added.getStringExtra("descripitonText");
         String mymnemonic = added.getStringExtra("mnemonic");
+        String mImageUrl = added.getStringExtra("imageIcon");
+        String category = added.getStringExtra("categorie");
 
 
 
@@ -103,19 +102,20 @@ public class Home extends AppCompatActivity {
         filmList.add(new Adders("\n" +
                 "Inception\n", "Dom Cobb est un voleur expérimenté – le meilleur qui soit dans l’art périlleux de l’extraction : sa spécialité consiste à s’approprier les secrets les plus précieux d’un individu, enfouis au plus profond de son subconscient, pendant qu’il rêve et que son esprit est particulièrement vulnérable. ", " 21/07/2010","inception"));
 
-        if (myCategory!=null && myCategory.equals("Film")) {
-            filmList.add(new Adders(myTitle, myDescripiton, myDate,mymnemonic));
+       if (category!=null && category.equals("Film")) {
+           filmList.add(new Adders(myTitle, myDescripiton, myDate, mImageUrl));
         }
 
 
         //Liste pour serie
         final List<Adders> serieList = new ArrayList<>();
 
-        serieList.add(new Adders("Peaky Blinders", "En 1919, à Birmingham, soldats, révolutionnaires politiques et criminels combattent pour se faire une place dans le paysage industriel de l'après-Guerre. Le Parlement s'attend à une violente révolte, et Winston Churchill mobilise des forces spéciales pour contenir les menaces. La famille Shelby compte parmi les membres les plus redoutables. ", "Depuis 2013","idiocracy"));
-        serieList.add(new Adders("Game of thrones", "Il y a très longtemps, à une époque oubliée, une force a détruit l'équilibre des saisons. Dans un pays où l'été peut durer plusieurs années et l'hiver toute une vie, des forces sinistres et surnaturelles se pressent aux portes du Royaume des Sept Couronnes. ","Depuis 2011", "idiocracy"));
-        serieList.add(new Adders("House of Cards", "Frank Underwood, homme politique rusé et vieux briscard de Washington, est prêt à tout pour conquérir le poste \"suprême\"...","2013 - 2018", "idiocracy"));
-       if (myCategory!=null && myCategory.equals("Serie")){
-        serieList.add(new Adders(myTitle, myDescripiton,myDate,mymnemonic));
+        serieList.add(new Adders("Peaky Blinders", "En 1919, à Birmingham, soldats, révolutionnaires politiques et criminels combattent pour se faire une place dans le paysage industriel de l'après-Guerre. Le Parlement s'attend à une violente révolte, et Winston Churchill mobilise des forces spéciales pour contenir les menaces. La famille Shelby compte parmi les membres les plus redoutables. ", "Depuis 2013","peaky"));
+        serieList.add(new Adders("Game of thrones", "Il y a très longtemps, à une époque oubliée, une force a détruit l'équilibre des saisons. Dans un pays où l'été peut durer plusieurs années et l'hiver toute une vie, des forces sinistres et surnaturelles se pressent aux portes du Royaume des Sept Couronnes. ","Depuis 2011", "got"));
+        serieList.add(new Adders("House of Cards", "Frank Underwood, homme politique rusé et vieux briscard de Washington, est prêt à tout pour conquérir le poste \"suprême\"...","2013 - 2018", "houseofcards"));
+
+        if (category!=null && category.equals("Serie")){
+        serieList.add(new Adders(myTitle, myDescripiton,myDate,mImageUrl));
        }
 
         //Liste pour animes
@@ -123,12 +123,12 @@ public class Home extends AppCompatActivity {
 
         animeList.add(new Adders("Death Note"," Light Yagami, un jeune étudiant surdoué, ramasse un jour le \"Death Note\", un carnet tenu auparavant par un shinigami (Dieu de la mort), Ryuk, qui apparemment s'ennuyait dans son monde.\n" +
                 "\n" +
-                "Il suffit d'écrire le nom d'une personne dans ce carnet, et celle-ci meurt (selon certaines conditions que le shinigami expliquera à Light lors de leur rencontre).", "04/10/2006","idiocracy"));
+                "Il suffit d'écrire le nom d'une personne dans ce carnet, et celle-ci meurt (selon certaines conditions que le shinigami expliquera à Light lors de leur rencontre).", "04/10/2006","deathnote"));
         animeList.add(new Adders("\n" +
-                "Nana", "Nana Komatsu, une jeune étudiante, décide de quitter sa ville natale pour partir rejoindre son petit ami Shôji, qui étudie dans une école d'art à Tokyo. ", "05/04/2006 ","idiocracy"));
-        animeList.add(new Adders("Yakusoku no Neverland", "Emma, Norman et Ray coulent des jours heureux à l'orphelinat Grace Field House. Entourés de leurs petits frères et sœurs, ils s'épanouissent sous l'attention pleine de tendresse de « Maman », qu'ils considèrent comme leur véritable mère. Mais tout bascule le soir où ils découvrent l'abominable réalité qui se cache derrière la façade de leur vie paisible ! Ils doivent s'échapper, c'est une question de vie ou de mort !", "09/01/2019","idiocracy"));
-        if (myCategory!=null && myCategory.equals("Anime")){
-        animeList.add(new Adders(myTitle,myDescripiton, myDate, mymnemonic));}
+                "Nana", "Nana Komatsu, une jeune étudiante, décide de quitter sa ville natale pour partir rejoindre son petit ami Shôji, qui étudie dans une école d'art à Tokyo. ", "05/04/2006 ","nana"));
+        animeList.add(new Adders("Yakusoku no Neverland", "Emma, Norman et Ray coulent des jours heureux à l'orphelinat Grace Field House. Entourés de leurs petits frères et sœurs, ils s'épanouissent sous l'attention pleine de tendresse de « Maman », qu'ils considèrent comme leur véritable mère. Mais tout bascule le soir où ils découvrent l'abominable réalité qui se cache derrière la façade de leur vie paisible ! Ils doivent s'échapper, c'est une question de vie ou de mort !", "09/01/2019","neverland"));
+       if (category!=null && category.equals("Anime")){
+        animeList.add(new Adders(myTitle,myDescripiton, myDate, mImageUrl));}
 
 
         //Spinner

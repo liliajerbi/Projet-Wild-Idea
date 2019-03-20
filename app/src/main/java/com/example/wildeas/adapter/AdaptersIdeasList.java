@@ -2,7 +2,10 @@ package com.example.wildeas.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,7 @@ import com.example.wildeas.R;
 import com.example.wildeas.Todo;
 import com.example.wildeas.models.Adders;
 
+import java.io.IOException;
 import java.util.List;
 
 public class AdaptersIdeasList extends ArrayAdapter<Adders> {
@@ -56,6 +60,7 @@ public class AdaptersIdeasList extends ArrayAdapter<Adders> {
 
 
 
+
         //recuperer item
         final TextView itemTitleView = convertView.findViewById(R.id.item_title);
         itemTitleView.setText(itemTitle);
@@ -68,8 +73,17 @@ public class AdaptersIdeasList extends ArrayAdapter<Adders> {
 
         ImageView itemIconView = convertView.findViewById(R.id.item_image);
         String resourceName =  mnemonic;
-        int resId = context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
-        itemIconView.setImageResource(resId);
+
+
+        Uri myUri = Uri.parse(mnemonic);
+        try {
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(convertView.getContext().getContentResolver(), myUri);
+            itemIconView.setImageBitmap(bitmap);
+        } catch (IOException e) {
+            int resId = context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
+            itemIconView.setImageResource(resId);
+            e.printStackTrace();
+        }
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
