@@ -4,13 +4,15 @@ public class Adders {
         String title;
         String date;
         String description;
+        String mnemonic;
 
         //Constructeurs
 
-    public Adders(String title, String description, String date) {
+    public Adders(String title, String description, String date, String mnemonic) {
         this.title = title;
         this.description = description;
         this.date = date;
+        this.mnemonic=mnemonic;
     }
 
 
@@ -43,6 +45,10 @@ public class Adders {
         public void setDescription(String description) {
             this.description = description;
         }
+
+    public String getMnemonic() {
+        return mnemonic;
+    }
     }
 
 
