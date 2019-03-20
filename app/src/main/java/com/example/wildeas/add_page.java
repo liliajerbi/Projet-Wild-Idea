@@ -16,12 +16,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.Toast;
+
 import java.io.IOException;
 
 
 public class add_page extends AppCompatActivity {
+
     String mImageUrl = null;
-    String category ="";
+    String category = "";
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -105,17 +109,22 @@ public class add_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_page);
 
+
         Button button_add= findViewById(R.id.button_add);
         button_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 EditText title_text = findViewById(R.id.title_text);
                 String titleText = title_text.getText().toString();
                 EditText descripiton_text = findViewById(R.id.descripiton_text);
                 String descripitonText = descripiton_text.getText().toString();
                 EditText date_text = findViewById(R.id.date_text);
                 String dateText = date_text.getText().toString();
+                if ((category==null) || (mImageUrl==null) || (titleText.equals("")) || (descripitonText.equals("")) ||(dateText.equals(""))){
+                    Toast.makeText(add_page.this, "You must fill in all the fields", Toast.LENGTH_LONG).show();
+                } else {
+
+                    Toast.makeText(add_page.this, "Your article has been added", Toast.LENGTH_LONG).show();
 
                 Intent homePage = new Intent(add_page.this, Home.class);
                 homePage.putExtra("titleText", titleText);
@@ -123,9 +132,9 @@ public class add_page extends AppCompatActivity {
                 homePage.putExtra("descripitonText", descripitonText);
                 homePage.putExtra("imageIcon",mImageUrl );
                 homePage.putExtra("categorie", category);
-               // homePage.putExtra("categorieText", categorieChoix);
 
                 startActivity(homePage);
+            }
             }
         });
 

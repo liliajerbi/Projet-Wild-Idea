@@ -25,7 +25,6 @@
     <string name="Type">Mettre ici cinema ou serie ou anime</string>
     <string name="Title">Title</string>
     <string name="title">Title</string>
-    <string name="indiquez_film_serie_anime">Indiquez : Film / Serie / Anime</string>
     <string name="login">Login</string>
     <string name="photolauncher">photolauncher</string>
     <string name="portrait">portrait</string>
@@ -35,8 +34,8 @@
     <string name="buttonadd">buttonAdd</string>
     <string name="add_image">Add image</string>
     <string name="categories">Categorie</string>
-    <string name="cinema">Cinéma</string>
+    <string name="cinema">Cinema</string>
     <string name="anime">Anime</string>
-    <string name="serie">Série</string>
-    <string name="category">Catégorie</string>
+    <string name="serie">Serie</string>
+    <string name="category">Choose the category</string>
 </resources>

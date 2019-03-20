@@ -3,7 +3,6 @@ package com.example.wildeas.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
@@ -15,7 +14,6 @@ import android.widget.TextView;
 import com.example.wildeas.R;
 import com.example.wildeas.Todo;
 import com.example.wildeas.models.Adders;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -59,8 +57,6 @@ public class AdaptersIdeasList extends ArrayAdapter<Adders> {
         final String mnemonic = currentItem.getMnemonic();
 
 
-
-
         //recuperer item
         final TextView itemTitleView = convertView.findViewById(R.id.item_title);
         itemTitleView.setText(itemTitle);
@@ -92,6 +88,7 @@ public class AdaptersIdeasList extends ArrayAdapter<Adders> {
                 goToToDo.putExtra("title", itemTitle);
                 goToToDo.putExtra("date", itemDate);
                 goToToDo.putExtra("description", itemDescription);
+                goToToDo.putExtra("image",mnemonic);
                 getContext().startActivity(goToToDo);
             }
         });

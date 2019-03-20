@@ -67,7 +67,7 @@ public class Home extends AppCompatActivity {
 
         Spinner spinnercategories = findViewById(R.id.spinner);
         List<String> categories = new ArrayList<>();
-        categories.add("Films");
+        categories.add("Movies");
         categories.add("Series");
         categories.add("Anime");
 
@@ -101,9 +101,9 @@ public class Home extends AppCompatActivity {
         final List<Adders> filmList = new ArrayList<>();
 
         filmList.add(new Adders("\n" +
-                "Idiocracy\n","Joe Bowers, l'Américain moyen par excellence, est choisi par le Pentagone comme cobaye d'un programme d'hibernation, qui va mal tourner. Il se réveille 500 ans plus tard et découvre que le niveau intellectuel de l'espèce humaine a radicalement baissé et qu'il est l'homme le plus brillant sur la planète... ", "  25 avril 2007 ", "idiocracy"));
+                "Idiocracy\n","Joe Bowers, l'Américain moyen par excellence, est choisi par le Pentagone comme cobaye d'un programme d'hibernation, qui va mal tourner. Il se réveille 500 ans plus tard et découvre que le niveau intellectuel de l'espèce humaine a radicalement baissé et qu'il est l'homme le plus brillant sur la planète... ", "  25/04/2007 ", "idiocracy"));
         filmList.add(new Adders("\n" +
-                "L'Arnacoeur\n", "Votre fille sort avec un sale type ? Votre soeur s'est enlisée dans une relation passionnelle destructrice ? Aujourd'hui, il existe une solution radicale, elle s'appelle Alex. Son métier : briseur de couple professionnel.", " 17 mars 2010","arnacoeur"));
+                "L'Arnacoeur\n", "Votre fille sort avec un sale type ? Votre soeur s'est enlisée dans une relation passionnelle destructrice ? Aujourd'hui, il existe une solution radicale, elle s'appelle Alex. Son métier : briseur de couple professionnel.", " 17/03/2010","arnacoeur"));
         filmList.add(new Adders("\n" +
                 "Inception\n", "Dom Cobb est un voleur expérimenté – le meilleur qui soit dans l’art périlleux de l’extraction : sa spécialité consiste à s’approprier les secrets les plus précieux d’un individu, enfouis au plus profond de son subconscient, pendant qu’il rêve et que son esprit est particulièrement vulnérable. ", " 21/07/2010","inception"));
 
@@ -115,8 +115,8 @@ public class Home extends AppCompatActivity {
         //Liste pour serie
         final List<Adders> serieList = new ArrayList<>();
 
-        serieList.add(new Adders("Peaky Blinders", "En 1919, à Birmingham, soldats, révolutionnaires politiques et criminels combattent pour se faire une place dans le paysage industriel de l'après-Guerre. Le Parlement s'attend à une violente révolte, et Winston Churchill mobilise des forces spéciales pour contenir les menaces. La famille Shelby compte parmi les membres les plus redoutables. ", "Depuis 2013","peaky"));
-        serieList.add(new Adders("Game of thrones", "Il y a très longtemps, à une époque oubliée, une force a détruit l'équilibre des saisons. Dans un pays où l'été peut durer plusieurs années et l'hiver toute une vie, des forces sinistres et surnaturelles se pressent aux portes du Royaume des Sept Couronnes. ","Depuis 2011", "got"));
+        serieList.add(new Adders("Peaky Blinders", "En 1919, à Birmingham, soldats, révolutionnaires politiques et criminels combattent pour se faire une place dans le paysage industriel de l'après-Guerre. Le Parlement s'attend à une violente révolte, et Winston Churchill mobilise des forces spéciales pour contenir les menaces. La famille Shelby compte parmi les membres les plus redoutables. ", "2013","peaky"));
+        serieList.add(new Adders("Game of thrones", "Il y a très longtemps, à une époque oubliée, une force a détruit l'équilibre des saisons. Dans un pays où l'été peut durer plusieurs années et l'hiver toute une vie, des forces sinistres et surnaturelles se pressent aux portes du Royaume des Sept Couronnes. ","2011", "got"));
         serieList.add(new Adders("House of Cards", "Frank Underwood, homme politique rusé et vieux briscard de Washington, est prêt à tout pour conquérir le poste \"suprême\"...","2013 - 2018", "houseofcards"));
 
         if (category!=null && category.equals("Serie")){
