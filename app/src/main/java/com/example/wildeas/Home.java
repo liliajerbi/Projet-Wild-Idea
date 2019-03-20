@@ -38,16 +38,16 @@ public class Home extends AppCompatActivity {
                 return true;
             case R.id.action_deco:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
-                builder.setTitle("Attention");
-                builder.setMessage("Do you really want to quit this beautiful application ?");
-                builder.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                builder.setTitle(R.string.caution);
+                builder.setMessage(R.string.messagequit);
+                builder.setPositiveButton(R.string.yes,new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent gotoMain = new Intent(Home.this, MainActivity.class);
                         startActivity(gotoMain);
                     }
                 });
-                builder.setNegativeButton("No", null);
+                builder.setNegativeButton(R.string.no, null);
                 AlertDialog dialog = builder.create();
                 dialog.show();
                 return true;
@@ -67,8 +67,8 @@ public class Home extends AppCompatActivity {
 
         Spinner spinnercategories = findViewById(R.id.spinner);
         List<String> categories = new ArrayList<>();
-        categories.add("Films");
-        categories.add("Series");
+        categories.add("Cinema");
+        categories.add("Serie");
         categories.add("Anime");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
@@ -94,8 +94,6 @@ public class Home extends AppCompatActivity {
         String mymnemonic = added.getStringExtra("mnemonic");
         String mImageUrl = added.getStringExtra("imageIcon");
         String category = added.getStringExtra("categorie");
-
-
 
         //Liste pour film
         final List<Adders> filmList = new ArrayList<>();

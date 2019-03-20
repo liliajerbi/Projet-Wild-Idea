@@ -39,4 +39,9 @@
     <string name="anime">Anime</string>
     <string name="serie">Série</string>
     <string name="category">Catégorie</string>
+    <string name="messagequit">Do you really want to quit this beautiful application ?</string>
+    <string name="caution">Attention</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="confirmadd">Do you really want to create this card ?</string>
 </resources>

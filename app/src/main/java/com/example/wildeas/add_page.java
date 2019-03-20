@@ -38,16 +38,16 @@ public class add_page extends AppCompatActivity {
                 return true;
             case R.id.action_deco:
                 AlertDialog.Builder builder = new AlertDialog.Builder(add_page.this);
-                builder.setTitle("Attention");
-                builder.setMessage("Do you really want to quit this beautiful application ?");
-                builder.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                builder.setTitle(R.string.caution);
+                builder.setMessage(R.string.messagequit);
+                builder.setPositiveButton(R.string.yes,new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent gotoMain = new Intent(add_page.this, MainActivity.class);
                         startActivity(gotoMain);
                     }
                 });
-                builder.setNegativeButton("No", null);
+                builder.setNegativeButton(R.string.no, null);
                 AlertDialog dialog = builder.create();
                 dialog.show();
                 return true;
@@ -109,23 +109,33 @@ public class add_page extends AppCompatActivity {
         button_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(add_page.this);
+                builder.setTitle(R.string.caution);
+                builder.setMessage(R.string.confirmadd);
+                builder.setPositiveButton(R.string.yes,new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        EditText title_text = findViewById(R.id.title_text);
+                        String titleText = title_text.getText().toString();
+                        EditText descripiton_text = findViewById(R.id.descripiton_text);
+                        String descripitonText = descripiton_text.getText().toString();
+                        EditText date_text = findViewById(R.id.date_text);
+                        String dateText = date_text.getText().toString();
 
-                EditText title_text = findViewById(R.id.title_text);
-                String titleText = title_text.getText().toString();
-                EditText descripiton_text = findViewById(R.id.descripiton_text);
-                String descripitonText = descripiton_text.getText().toString();
-                EditText date_text = findViewById(R.id.date_text);
-                String dateText = date_text.getText().toString();
+                        Intent homePage = new Intent(add_page.this, Home.class);
+                        homePage.putExtra("titleText", titleText);
+                        homePage.putExtra("dateText", dateText);
+                        homePage.putExtra("descripitonText", descripitonText);
+                        homePage.putExtra("imageIcon",mImageUrl );
+                        homePage.putExtra("categorie", category);
 
-                Intent homePage = new Intent(add_page.this, Home.class);
-                homePage.putExtra("titleText", titleText);
-                homePage.putExtra("dateText", dateText);
-                homePage.putExtra("descripitonText", descripitonText);
-                homePage.putExtra("imageIcon",mImageUrl );
-                homePage.putExtra("categorie", category);
-               // homePage.putExtra("categorieText", categorieChoix);
+                        startActivity(homePage);
+                    }
+                });
+                builder.setNegativeButton(R.string.no, null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
 
-                startActivity(homePage);
             }
         });
 

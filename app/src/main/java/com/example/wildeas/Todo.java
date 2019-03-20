@@ -25,16 +25,16 @@ public class Todo extends AppCompatActivity {
                 return true;
             case R.id.action_deco:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Todo.this);
-                builder.setTitle("Attention");
-                builder.setMessage("Do you really want to quit this beautiful application ?");
-                builder.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                builder.setTitle(R.string.caution);
+                builder.setMessage(R.string.messagequit);
+                builder.setPositiveButton(R.string.yes,new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent gotoMain = new Intent(Todo.this, MainActivity.class);
                         startActivity(gotoMain);
                     }
                 });
-                builder.setNegativeButton("No", null);
+                builder.setNegativeButton(R.string.no, null);
                 AlertDialog dialog = builder.create();
                 dialog.show();
                 return true;
