@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" >
 
+    <item
+        android:id="@+id/action_home"
+        android:icon="@android:drawable/ic_lock_power_off"
+        android:title="@string/home"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_aboutUs"
@@ -14,5 +19,7 @@
         android:icon="@android:drawable/ic_lock_power_off"
         android:title="@string/deconnexion"
         app:showAsAction="never" />
+
+
 
 </menu>

@@ -5,11 +5,8 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import static com.example.wildeas.R.layout.activity_launcher;
 
 public class LauncherActivity extends AppCompatActivity {
-
-    private final int LAUNCH_TIME_OUT = 3000;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -17,6 +14,7 @@ public class LauncherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_launcher);
         getSupportActionBar().hide();
 
+        int LAUNCH_TIME_OUT = 3000;
         new Handler().postDelayed(new Runnable() {
 
             @Override

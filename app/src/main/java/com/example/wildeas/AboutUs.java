@@ -1,6 +1,8 @@
 package com.example.wildeas;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -24,8 +26,23 @@ public class AboutUs extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_deco:
-                Intent gotoMain = new Intent(AboutUs.this, MainActivity.class);
-                startActivity(gotoMain);
+                AlertDialog.Builder builder = new AlertDialog.Builder(AboutUs.this);
+                builder.setTitle("Attention");
+                builder.setMessage("Do you really want to quit this beautiful application ?");
+                builder.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent gotoMain = new Intent(AboutUs.this, MainActivity.class);
+                        startActivity(gotoMain);
+                    }
+                });
+                builder.setNegativeButton("No", null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                return true;
+            case R.id.action_home:
+                Intent gotoHome = new Intent(AboutUs.this, Home.class);
+                startActivity(gotoHome);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

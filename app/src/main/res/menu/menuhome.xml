@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto" >
 
     <item
-        android:id="@+id/action_home"
-        android:icon="@android:drawable/ic_lock_power_off"
-        android:title="@string/home"
+        android:id="@+id/action_aboutUs"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/action_aboutUs"
         app:showAsAction="never" />
 
     <item
@@ -13,5 +13,7 @@
         android:icon="@android:drawable/ic_lock_power_off"
         android:title="@string/deconnexion"
         app:showAsAction="never" />
+
+
 
 </menu>

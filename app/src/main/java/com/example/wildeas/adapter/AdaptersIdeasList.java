@@ -51,8 +51,6 @@ public class AdaptersIdeasList extends ArrayAdapter<Adders> {
         final String itemDate= currentItem.getDate();
         final String itemDescription= currentItem.getDescription();
 
-
-
         //recuperer item
         final TextView itemTitleView = convertView.findViewById(R.id.item_title);
         itemTitleView.setText(itemTitle);

@@ -48,17 +48,15 @@ public class MainActivity extends AppCompatActivity {
                  String login = textName.getText().toString();
                  String password = textPassword.getText().toString();
                     if (login.equals("wild") && password.equals("wild")) {
-
                         SharedPreferences sharedpref = MainActivity.this.getSharedPreferences("com.example.wildeas", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedpref.edit();
                         editor.putString("Login", login);
                         editor.apply();
                         Intent homePage = new Intent(MainActivity.this, Home.class);
-                        //homePage.putExtra("textName", login);
                         startActivity(homePage);
                     }
                     else {
-                        Toast.makeText(MainActivity.this, "Wrong login/password", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Wrong login or password", Toast.LENGTH_LONG).show();
                     }
             }
 
