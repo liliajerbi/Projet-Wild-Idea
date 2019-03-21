@@ -75,7 +75,7 @@ public class add_page extends AppCompatActivity {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 // Log.d(TAG, String.valueOf(bitmap));
 
-                ImageView imageView = (ImageView) findViewById(R.id.imgView);
+                ImageView imageView = findViewById(R.id.imgView);
                 imageView.setImageBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -145,6 +145,7 @@ public class add_page extends AppCompatActivity {
                             startActivity(homePage);
                         }
                     });
+
                     builder.setNegativeButton(R.string.no, null);
                     AlertDialog dialog = builder.create();
                     dialog.show();
