@@ -16,12 +16,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.Toast;
+
 import java.io.IOException;
 
 
 public class add_page extends AppCompatActivity {
+
     String mImageUrl = null;
-    String category ="";
+    String category = "";
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,34 +112,44 @@ public class add_page extends AppCompatActivity {
         button_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(add_page.this);
-                builder.setTitle(R.string.caution);
-                builder.setMessage(R.string.confirmadd);
-                builder.setPositiveButton(R.string.yes,new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        EditText title_text = findViewById(R.id.title_text);
-                        String titleText = title_text.getText().toString();
-                        EditText descripiton_text = findViewById(R.id.descripiton_text);
-                        String descripitonText = descripiton_text.getText().toString();
-                        EditText date_text = findViewById(R.id.date_text);
-                        String dateText = date_text.getText().toString();
+                EditText title_text = findViewById(R.id.title_text);
+                String titleText = title_text.getText().toString();
+                EditText descripiton_text = findViewById(R.id.descripiton_text);
+                String descripitonText = descripiton_text.getText().toString();
+                EditText date_text = findViewById(R.id.date_text);
+                String dateText = date_text.getText().toString();
+                if ((category==null) || (mImageUrl==null) || (titleText.equals("")) || (descripitonText.equals("")) ||(dateText.equals(""))){
+                    Toast.makeText(add_page.this, "You must fill in all the fields", Toast.LENGTH_LONG).show();
+                } else {
 
-                        Intent homePage = new Intent(add_page.this, Home.class);
-                        homePage.putExtra("titleText", titleText);
-                        homePage.putExtra("dateText", dateText);
-                        homePage.putExtra("descripitonText", descripitonText);
-                        homePage.putExtra("imageIcon",mImageUrl );
-                        homePage.putExtra("categorie", category);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(add_page.this);
+                    builder.setTitle(R.string.caution);
+                    builder.setMessage(R.string.confirmadd);
+                    builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            EditText title_text = findViewById(R.id.title_text);
+                            String titleText = title_text.getText().toString();
+                            EditText descripiton_text = findViewById(R.id.descripiton_text);
+                            String descripitonText = descripiton_text.getText().toString();
+                            EditText date_text = findViewById(R.id.date_text);
+                            String dateText = date_text.getText().toString();
 
-                        startActivity(homePage);
+                            Intent homePage = new Intent(add_page.this, Home.class);
+                            homePage.putExtra("titleText", titleText);
+                            homePage.putExtra("dateText", dateText);
+                            homePage.putExtra("descripitonText", descripitonText);
+                            homePage.putExtra("imageIcon", mImageUrl);
+                            homePage.putExtra("categorie", category);
+
+                            startActivity(homePage);
+                        }
+                    });
+                    builder.setNegativeButton(R.string.no, null);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
                     }
-                });
-                builder.setNegativeButton(R.string.no, null);
-                AlertDialog dialog = builder.create();
-                dialog.show();
-
-            }
         });
 
         Button buttonLoadImage = findViewById(R.id.buttonLoadPicture);

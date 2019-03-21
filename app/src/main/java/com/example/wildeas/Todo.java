@@ -2,12 +2,17 @@ package com.example.wildeas;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
+import java.io.IOException;
 
 public class Todo extends AppCompatActivity {
 
@@ -55,15 +60,31 @@ public class Todo extends AppCompatActivity {
         TextView titre = findViewById(R.id.titre);
         TextView description = findViewById(R.id.description);
         TextView date = findViewById(R.id.date);
+        ImageView image = findViewById(R.id.imgViewIcon);
 
         Intent goToToDo = getIntent();
         String datevalue = goToToDo.getStringExtra("date");
         String titrevalue = goToToDo.getStringExtra("title");
         String descriptionvalue = goToToDo.getStringExtra("description");
+        String imageValue = goToToDo.getStringExtra("image");
 
+        loadImage(imageValue, image);
         date.setText(datevalue);
         titre.setText(titrevalue);
         description.setText(descriptionvalue);
 
+
+    }
+
+    public void loadImage(String imageValue, ImageView image) {
+        Uri myUri = Uri.parse(imageValue);
+        try {
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), myUri);
+            image.setImageBitmap(bitmap);
+        } catch (IOException e) {
+            int resId = getResources().getIdentifier(imageValue, "drawable", getPackageName());
+            image.setImageResource(resId);
+            e.printStackTrace();
+        }
     }
 }
