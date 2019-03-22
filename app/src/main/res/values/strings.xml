@@ -20,7 +20,7 @@
     <string name="titleSubject">Subject :</string>
     <string name="TitleContent">Content :</string>
     <string name="Content">Content :</string>
-    <string name="textaboutus">CSA is a free application created by passionates for passionates. It allows to know the release dates of movies, series and anime directly on mobile phone. Community can create and share cards. If you want to contact us, use form below.</string>
+    <string name="textaboutus">CSA is a free application created by passionates for passionates. It allows to know the release dates of movies, series and anime directly on mobile phone. Community can create and share articles. If you want to contact us, use form below.</string>
     <string name="descriptionlogo">logo</string>
     <string name="Type">Mettre ici cinema ou serie ou anime</string>
     <string name="Title">Title</string>
@@ -42,5 +42,5 @@
     <string name="caution">Attention</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="confirmadd">Do you really want to create this card ?</string>
+    <string name="confirmadd">Do you really want to create this article ?</string>
 </resources>
